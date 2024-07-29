@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='responsive.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon1.png') }}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Login</title>
+    <style>
+      #background-img{
+        background-image: url("https://workplace.fabevy.com/static/media/banner-home1-edited-1.b4969477fb00360ea322.jpg");
+        height: 100vh;
+      }
+      input{
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid gray;
+      }
+
+    textarea:focus, input:focus{
+    outline: none;
+    }
+    button{
+      border: none;
+      box-shadow: 0px 0px 10px blueviolet;
+      padding: 15px;
+    }
+        button :hover{
+            box-shadow: 0px 0px 10px blueviolet;
+        }
+  
+    </style>
+  </head>
+  <body>
+    <div id="background-img" class="col-lg-12">
+      <div style="margin: 0px auto;width: 95%;">
+      <div class="col-lg-10" style="display: flex;align-items: center;justify-content: end;height: 100vh;">
+      <div  class="col-lg-4 card" style="direction: ltr;background-color: white;padding:40px 30px;">
+        <div style="text-align: center;">
+          <h2 style="font-weight: 800;">LOGIN</h2>
+          <p style="font-weight:600;color: gray;font-size: 18px;">Log in to get in the momnent updates on the<br> things
+            that interest you.</p>
+        </div>
+        <form method="post">
+          <label style="width: 100%;font-weight: 800;font-size: 20px;">Email Id</label>
+          <input type="email" placeholder="Your Email" name="email">
+          <label style="width: 100%;font-weight: 800;font-size: 20px;">Password</label>
+          <input type="password" placeholder="Your Password" name="password">
+          <button style="background-color: blueviolet;color: white;font-weight: 800;border-radius: 5px;width:95%;margin: 10px auto;" type="submit">Sumbit</button>
+        </form> 
+        <div style="text-align: center;margin-top: 25px;">
+          <p class="text-primary fw-bold Create"><a href="{{url_for('Signup')}}" style="color: blueviolet;text-decoration: none;">New To Timesheet ? Create an Acoount</a></p>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Time-Sheet</title>
+    <style>
+      ::placeholder{
+        font-size: 20px;
+      }
+      table{
+        border-collapse: collapse;
+        width:95%;
+        margin:10% auto;
+        background-color: aliceblue;
+      }
+      th,td{
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+      }
+      th{
+        color: blueviolet;
+        font-size: 20px;
+        font-weight: 900;
+      }
+      td{
+        color: black;
+        font-size: 18px;
+      }
+      .sidebar {
+        width: 250px;
+        height: 100vh;
+        background: linear-gradient(180deg, #00264d, #005580); /* Adjust the colors as needed */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+       }
+
+      .logo img {
+        width: 150px;
+        margin-bottom: 20px;
+       }
+
+    .nav-menu {
+       width: 100%;
+    }
+
+    .nav-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      width: 100%;
+    }
+
+    .nav-menu a {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    </style>
+  </head>
+  <body>
+    <div>
+        <div class="col-lg-12">
+            <div style="display: flex;justify-content: space-between;">
+                <div class="col-lg-2" id="back-img" style="height:100vh;background-color:aliceblue;border-right:0.5px solid gray;">
+                  <div style="padding: 10px;height: 10vh;box-shadow: 0px 10px 0px gray;">
+                    <a href="{{url_for('Home')}}"><img src="./static/image-1.png" width="100%"></a>
+                  </div>
+                  <div class="sidebar">
+                    <div class="nav-menu">
+                        <ul style="margin-top:50px;">
+                            <li style="list-style-type: none;font-size:25px;margin-top: 10px;"><i class="fa-solid fa-briefcase" style="margin-right: 20px;"></i><a style="color: black;text-decoration: none;font-weight: 700;" href="#">Work Line</a></li>
+                            <li style="list-style-type: none;font-size:25px;margin-top: 10px;"><i class="fa-solid fa-clock" style="margin-right: 20px;"></i><a style="color: black;text-decoration: none;font-weight: 700;" href="#">Time Sheet</a></li>
+                            <li style="list-style-type: none;font-size:25px;margin-top: 10px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 20px;"></i><a style="color:black;text-decoration: none;font-weight: 700;" href="#">Student Batch</a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-10">
+                  <div class="col-lg-12" style="margin: 0 auto;height:10vh;box-shadow:0px 10px 0px gray;background-color:aliceblue;">
+                  <div style="width: 95%; margin: 0 auto;">
+                  <div class="col-lg-12" style="display: flex;align-items:center;justify-content: space-between;">
+                    <div class="col-lg-2">
+                      <div style="padding:30px;display: flex;align-items: center;justify-content: space-between;">
+                        <i class="fa-solid fa-bars" style="font-size: 35px;"></i>
+                        <input type="search" placeholder="search" style="padding: 10px;border-radius: 20px;width:90%;margin-left: 10px;">
+                      </div>
+                    </div>
+                    <div class="col-lg-10">
+                      <div style="display: flex;justify-content:end;align-items: center;">
+                        <div>
+                          <i class="fa-solid fa-user" style="font-size:50px;"></i>
+                        </div>
+                        <div style="margin-left:20px;">
+                          <h3>Vijay</h3>
+                          <h5 style="font-weight: 800;color: gray;">Trainer</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-12 mt-5">
+                    <div style="width: 95%;margin: 0 auto;">
+                    <div style="display: flex;align-items: center;justify-content: space-between;">
+                      <div>
+                        <h2 style="font-weight: 700;color: rgb(111, 234, 243);">Student Time-Sheet</h2>
+                      </div>
+                      <div style="display: flex;align-items: center;justify-content: end;">
+                        <button style="background-color: blue;border: none;padding: 10px;box-shadow: 0px 0px 5px black;margin-right: 10px;"><a style="text-decoration: none;color: white;font-weight: 800;" href="{{url_for('Timesheet')}}">Add Timesheet</a></button>
+                        <form method="post"><input type="date" style="padding:8px 10px;margin-right: 10px;" name="date">
+                        <button  type="submit"  style="color: white;padding: 10px;background-color: blue;margin-right: 10px;border: none;box-shadow: 0px 0px 10px black;"><i class="fa-solid fa-filter"></i></button></form>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

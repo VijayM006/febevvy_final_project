@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Edit Timesheet</title>
+    <style>
+        input {
+            width: 100%;
+            margin: 10px 0px;
+            padding: 3px;
+        }
+        label {
+            width: 100%;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;" class="col-lg-12">
+    <div class="col-lg-4 card py-5 px-5" style="box-shadow: 0px 0px 5px black;">
+        <div class="card" style="background-color: blue; color: white; text-align: center; font-size: 20px; font-weight: 800; height: 100px;">
+            <div style="text-align: end; padding-right: 20px; padding-top: 10px;">
+                <a href="{{ url_for('Table') }}" class="rounded-circle" style="color: white; height: 30px; width: 30px; line-height: 30px; background-color: red; display: inline-block; text-align: center;">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div style="padding-bottom: 20px;">
+                Edit Timesheet
+            </div>
+        </div>
+        <form method="post">
+            <label>Date :</label>
+            <input type="date" name="date" value="{{ data.login_date }}">
+            <label>Start Time :</label>
+            <input type="time" name="start_time" value="{{ data.start_time }}">
+            <label>End Time :</label>
+            <input type="time" name="end_time" value="{{ data.end_time }}">
+            <label>Job Name :</label>
+            <input type="text" placeholder="Enter The Job Name" name="job_name" value="{{ data.job_name }}">
+            <label>Job Code :</label>
+            <input type="text" placeholder="Enter The Job Code" name="job_code" value="{{ data.job_code }}">
+            <label>Department :</label>
+            <input type="text" placeholder="Enter The Department" name="department" value="{{ data.department }}">
+            <label>Project :</label>
+            <input type="text" placeholder="Enter The Projects" name="project" value="{{ data.project }}">
+            <label>Modules :</label>
+            <input type="text" placeholder="Enter The Modules" name="modules" value="{{ data.modules }}">
+            <input style="background-color: blue; color: white; font-weight: 800; padding: 10px; font-size: 20px; border: none; box-shadow: 0px 0px 5px black;" type="submit" value="submit">
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
